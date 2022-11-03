@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane onMouseMoved="#moveScreen" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.ExampleProjectController">
    <children>
       <AnchorPane fx:id="background" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleMissClick" prefHeight="344.0" prefWidth="600.0">
@@ -24,6 +23,7 @@
       <HBox prefHeight="35.0" prefWidth="600.0">
          <children>
             <Button fx:id="restartButton" mnemonicParsing="false" onAction="#handleResetButton" prefHeight="35.0" prefWidth="89.0" text="Reset" />
+            <Button fx:id="randomButton" mnemonicParsing="false" onAction="#handleRandomButton" prefHeight="35.0" prefWidth="99.0" text="Random: True" />
             <Label fx:id="feil_label" text="Antall feil: 0">
                <HBox.margin>
                   <Insets right="10.0" />

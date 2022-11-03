@@ -42,6 +42,13 @@ public class ExampleProjectController implements Initializable {
 
     private boolean start = false;
 
+    private boolean rand = true;
+    private int nonRandI = 0;
+    private Integer[] listX = new Integer[]{835, 410, 961, 118, 968, 621, 258, 1041, 585, 1150};
+    private Integer[] listY = new Integer[]{192, 40, 136, 296, 127, 522, 205, 521, 547, 241};
+    private int width;
+    private int heigth;
+
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
     private int clicks = -1;
@@ -51,6 +58,9 @@ public class ExampleProjectController implements Initializable {
 
     @FXML
     private Button restartButton;
+
+    @FXML
+    private Button randomButton;
 
     Random random = new Random();
 
@@ -98,6 +108,7 @@ public class ExampleProjectController implements Initializable {
             startTime = System.nanoTime();
             timerforTimer.start();
             start = true;
+            nonRandI = 0;
             restart();
             button.setText("Trykk");            
         }
@@ -115,8 +126,15 @@ public class ExampleProjectController implements Initializable {
             timerforTimer.start();
         }
         else{
-            int width = random.nextInt(1279-103);
-            int heigth = random.nextInt(696-103);
+            if (rand){
+                width = random.nextInt(1279-103);
+                heigth = random.nextInt(696-103);
+            }
+            else{
+                width = listX[nonRandI];
+                heigth = listY[nonRandI];
+                nonRandI++;
+            }
             button.setLayoutX(width);
             button.setLayoutY(heigth);
             clicks++;
@@ -144,6 +162,13 @@ public class ExampleProjectController implements Initializable {
         time_label.setText("Time: 0");
         clicks_label.setText("Clicks: 0");
         start = false;
+    }
+
+    @FXML
+    private void handleRandomButton() {
+        if (rand){rand = false;}
+        else if (rand == false){rand = true;}
+        randomButton.setText("Random: " + String.valueOf(rand));
     }
 
     @FXML
