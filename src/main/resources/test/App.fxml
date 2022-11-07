@@ -9,7 +9,7 @@
 
 <AnchorPane onMouseMoved="#moveScreen" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.ExampleProjectController">
    <children>
-      <AnchorPane fx:id="background" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleMissClick" prefHeight="344.0" prefWidth="600.0">
+      <AnchorPane fx:id="background" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleMissClick" prefHeight="344.0" prefWidth="713.0">
          <children>
             <Label fx:id="result" layoutX="257.0" layoutY="244.0" />
             <Button fx:id="button" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="68.0" prefWidth="103.0" text="Trykk" />
@@ -20,10 +20,11 @@
             </Label>
          </children>
       </AnchorPane>
-      <HBox prefHeight="35.0" prefWidth="600.0">
+      <HBox prefHeight="35.0" prefWidth="713.0">
          <children>
             <Button fx:id="restartButton" mnemonicParsing="false" onAction="#handleResetButton" prefHeight="35.0" prefWidth="89.0" text="Reset" />
             <Button fx:id="randomButton" mnemonicParsing="false" onAction="#handleRandomButton" prefHeight="35.0" prefWidth="99.0" text="Random: True" />
+            <Button fx:id="inputButton" mnemonicParsing="false" onAction="#handleInputDeviceButton" prefHeight="35.0" prefWidth="143.0" text="InpuDevice: Trackpad" />
             <Label fx:id="feil_label" text="Antall feil: 0">
                <HBox.margin>
                   <Insets right="10.0" />

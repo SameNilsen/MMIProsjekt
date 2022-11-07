@@ -44,14 +44,18 @@ public class ExampleProjectController implements Initializable {
 
     private boolean rand = true;
     private int nonRandI = 0;
-    private Integer[] listX = new Integer[]{835, 410, 961, 118, 968, 621, 258, 1041, 585, 1150};
-    private Integer[] listY = new Integer[]{192, 40, 136, 296, 127, 522, 205, 521, 547, 241};
+    private Integer[] listX = new Integer[]{835, 410, 961, 118, 968, 621, 258, 1041, 585, 1150,
+                                            971, 620, 1039, 568, 398, 317, 35, 869, 1148, 435};
+    private Integer[] listY = new Integer[]{192, 40, 136, 296, 127, 522, 205, 521, 547, 241, 
+                                            159, 555, 563, 291, 97, 228, 66, 56, 309, 414};
     private int width;
     private int heigth;
 
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
     private int clicks = -1;
+
+    int inputDeviceIndex = 0;
 
     @FXML
     private Button button;
@@ -61,6 +65,9 @@ public class ExampleProjectController implements Initializable {
 
     @FXML
     private Button randomButton;
+
+    @FXML
+    private Button inputButton;
 
     Random random = new Random();
 
@@ -112,14 +119,16 @@ public class ExampleProjectController implements Initializable {
             restart();
             button.setText("Trykk");            
         }
-        if (clicks >= 9){
+        if (clicks >= 19){
             button.setLayoutX(550);
             button.setLayoutY(270);
             button.setText("Press to start");
             clicks++;
             clicks_label.setText("Clicks: " + clicks);
             timerforTimer.stop();
-            System.out.println("Ferdig! " + feil_label.getText() +", "+ time_label.getText() +", "+ clicks_label.getText());
+            System.out.println("Ferdig! " + feil_label.getText() +", "+ time_label.getText()
+                                 +", "+ clicks_label.getText() + ", "+ randomButton.getText()
+                                 + ", " + inputButton.getText());
             start = false;
             stop_label.setVisible(true);
             startTime = System.nanoTime();
@@ -169,6 +178,14 @@ public class ExampleProjectController implements Initializable {
         if (rand){rand = false;}
         else if (rand == false){rand = true;}
         randomButton.setText("Random: " + String.valueOf(rand));
+    }
+
+    @FXML
+    private void handleInputDeviceButton() {
+        String[] inputDevices = new String[]{"TrackPad", "TrackBall", "VanligMus"};
+        if (inputDeviceIndex == 2) inputDeviceIndex = 0;
+        else inputDeviceIndex++;
+        inputButton.setText("InputDevice: " + inputDevices[inputDeviceIndex]);
     }
 
     @FXML
